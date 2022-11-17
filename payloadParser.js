@@ -4,11 +4,6 @@ if(payloadHex) {
   //grab the payload hex value
   const payloadHexValue = payloadHex.value
 
-  // console.log(payloadHexValue)
-  // console.log('counter1 in byte --> ' + payloadHexValue.substring(2,10))
-  // console.log('battery voltage in byte --> ' + payloadHexValue.substring(18, 20))
-  // console.log('temp in byte --> ' + payloadHexValue.substring(20, 22))
-
   // Save each of the values needed for visualisation. 
   // Hexadecimal format has 32 characters => 2 character/byte. 
   // So counter1 that lies from bytes 1-4 will be a substring of the hex value from characters 2-8(including 8)
@@ -25,11 +20,7 @@ if(payloadHex) {
   const batteryVal = (3.3/256)* batteryVoltDec
   const tempVal = 90/256 * tempDec -30
 
-  // console.log("bat val --> " + batteryVal)
-  // console.log("temp val --> " + tempVal)
-
   // Push the variables and values
-
   payload.push({"variable" : "counter1", "value": counter1Dec});
   payload.push({"variable" : "battery_voltage", "value" : batteryVal});
   payload.push({"variable" : "temperature", "value" : tempVal });
